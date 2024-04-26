@@ -115,7 +115,7 @@ data_load_state = st.text('Loading data...')
 # Load 10,000 rows of data into the dataframe.
 vectorstore = load_data(EMBEDDING)
 # Notify the reader that the data was successfully loaded.
-data_load_state.text(f'Loading data...done! {db3.get()')
+data_load_state.text(f'Loading data...done! {db3.get()}')
 
 
 # INFERENCE
