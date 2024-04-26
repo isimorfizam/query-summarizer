@@ -100,7 +100,7 @@ def load_data(embedding) :
     # CREATE EMBEDDING
     embedding_function = SentenceTransformerEmbeddings(model_name=embedding)
     print(os.getcwd())
-    db3 = Chroma(persist_directory="isimorfizam/query-summarizer/chroma", embedding_function = embedding_function)
+    db3 = Chroma(collection_name = COLLECTION_NAME, persist_directory="isimorfizam/query-summarizer/chroma", embedding_function = embedding_function)
     return db3
 
 # Create a text element and let the reader know the data is loading.
