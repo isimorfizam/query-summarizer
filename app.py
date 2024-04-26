@@ -70,7 +70,7 @@ def load_model():
                                                 verbose=False,
                                                 n_ctx=1024,
                                                 cache_dir='./model_cached',
-                                                n_gpu_layers = 50,
+                                                #n_gpu_layers = 50,
                                                 n_threads=3, 
                                                 
                                                 )
