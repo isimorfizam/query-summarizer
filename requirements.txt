@@ -1,3 +1,4 @@
+pysqlite3-binary
 accelerate==0.29.2
 aiofiles==23.2.1
 aiohttp==3.9.4
