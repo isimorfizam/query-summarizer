@@ -54,30 +54,30 @@ class LlamaLLM(LLM):
 
 @st.cache_resource
 def load_model():
-    # llm_model =llama_cpp.Llama.from_pretrained(
-    #                                            #pretrained_model_name_or_path = 
-    #                                             repo_id="TheBloke/Mistral-7B-Instruct-v0.2-code-ft-GGUF",
-    #                                             filename="mistral-7b-instruct-v0.2-code-ft.Q5_K_M.gguf",
-    #                                             # repo_id="TheBloke/Llama-2-7b-Chat-GGUF",
-    #                                             # filename="llama-2-7b-chat.Q4_K_M.gguf",
-    #                                             #tokenizer=llama_cpp.llama_tokenizer.LlamaHFTokenizer.from_pretrained("Qwen/Qwen1.5-0.5B"),
-    #                                             embedding=True,
-    #                                             verbose=False,
-    #                                             n_ctx=1024,
-    #                                             cache_dir='./model_cached',
-    #                                             n_gpu_layers = 50,
-    #                                             n_threads=3, 
+    llm_model =llama_cpp.Llama.from_pretrained(
+                                               #pretrained_model_name_or_path = 
+                                                repo_id="TheBloke/Mistral-7B-Instruct-v0.2-code-ft-GGUF",
+                                                filename="mistral-7b-instruct-v0.2-code-ft.Q5_K_M.gguf",
+                                                # repo_id="TheBloke/Llama-2-7b-Chat-GGUF",
+                                                # filename="llama-2-7b-chat.Q4_K_M.gguf",
+                                                #tokenizer=llama_cpp.llama_tokenizer.LlamaHFTokenizer.from_pretrained("Qwen/Qwen1.5-0.5B"),
+                                                embedding=True,
+                                                verbose=False,
+                                                n_ctx=1024,
+                                                cache_dir='./model_cached',
+                                                n_gpu_layers = 50,
+                                                n_threads=3, 
                                                 
-    #                                             )
+                                                )
 
-    llm_model = Llama(
-                model_path="/Users/isidora/Documents/cake_vs_code/feedback_360/summarizer_meta_filtering/QuerySummarizer/model_cached/models--TheBloke--toxicqa-Llama2-7B-GGUF/snapshots/bc099cd6618be35ad1c35b57287b47f8e0d1768b/toxicqa-llama2-7b.Q5_K_M.gguf" ,  # Download the model file first
-                n_ctx=1024,  # The max sequence length to use - note that longer sequence lengths require much more resources
-                n_threads=3,            # The number of CPU threads to use, tailor to your system and the resulting performance
-                n_gpu_layers=50,     # The number of layers to offload to GPU, if you have GPU acceleration available
-                embedding=True,
-                chat_format="llama-2",
-                )
+    # llm_model = Llama(
+    #             model_path="/Users/isidora/Documents/cake_vs_code/feedback_360/summarizer_meta_filtering/QuerySummarizer/model_cached/models--TheBloke--toxicqa-Llama2-7B-GGUF/snapshots/bc099cd6618be35ad1c35b57287b47f8e0d1768b/toxicqa-llama2-7b.Q5_K_M.gguf" ,  # Download the model file first
+    #             n_ctx=1024,  # The max sequence length to use - note that longer sequence lengths require much more resources
+    #             n_threads=3,            # The number of CPU threads to use, tailor to your system and the resulting performance
+    #             n_gpu_layers=50,     # The number of layers to offload to GPU, if you have GPU acceleration available
+    #             embedding=True,
+    #             chat_format="llama-2",
+    #             )
     #model.to_bettertransformer()
     #from ctransformers import AutoModelForCausalLM
 
@@ -96,7 +96,7 @@ def load_model():
 def load_data(embedding) :
     # CREATE EMBEDDING
     embedding_function = SentenceTransformerEmbeddings(model_name=embedding)
-    db3 = Chroma(collection_name = COLLECTION_NAME, persist_directory="/Users/isidora/Documents/cake_vs_code/feedback_360/chroma", embedding_function = embedding_function)
+    db3 = Chroma(collection_name = COLLECTION_NAME, persist_directory="./chroma", embedding_function = embedding_function)
     return db3
 
 # Create a text element and let the reader know the data is loading.
